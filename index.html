@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>TV Suprema RP</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Preenche a tela sem distorcer */
+    }
+  </style>
+</head>
+<body>
+  <!-- Qualquer arquivo MP4 colocado na mesma pasta será reproduzido automaticamente -->
+  <video id="tvVideo" autoplay loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Seu navegador não suporta HTML5 video.
+  </video>
+
+  <script>
+    const video = document.getElementById('tvVideo');
+
+    // Garantir que o vídeo toque com som
+    video.muted = false;
+
+    // Forçar play automático (funciona no FiveM)
+    video.play().catch(() => {
+      console.log("Autoplay com som não permitido pelo navegador, mas deve funcionar no FiveM.");
+    });
+  </script>
+</body>
+</html>
